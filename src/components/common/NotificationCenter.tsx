@@ -85,7 +85,7 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
                             <div className="header-right-actions">
                                 {effectiveUnreadCount > 0 && (
                                     <button
-                                        onClick={markAllAsRead}
+                                        onClick={() => useNotificationStore.getState().markAllAsRead()}
                                         className="mark-all-btn"
                                         title="Mark all as read"
                                     >

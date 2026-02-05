@@ -60,7 +60,7 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
 
     markAllAsRead: async () => {
         try {
-            await api.patch('/notifications/read-all');
+            await api.patch('/notifications/read-all', {});
             set((state) => ({
                 notifications: state.notifications.map(n => ({ ...n, isRead: true })),
                 unreadCount: 0
