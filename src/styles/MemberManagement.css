@@ -1,0 +1,404 @@
+.member-management-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.invite-section {
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.invite-form {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.invite-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.2s;
+}
+
+[data-theme='light'] .invite-input {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.invite-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.role-select {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    outline: none;
+    cursor: pointer;
+}
+
+[data-theme='light'] .role-select {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.members-list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    transition: all 0.2s;
+}
+
+.member-card:hover {
+    background: var(--bg-surface);
+    border-color: var(--primary-glow);
+    transform: translateY(-2px);
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.member-avatar {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--primary), #818cf8);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+}
+
+.member-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.member-email {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.member-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-pill {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pill.accepted {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-pill.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.role-badge {
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-glass);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.role-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.role-select-wrapper::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--text-muted);
+    position: absolute;
+    right: 8px;
+    pointer-events: none;
+}
+
+.role-badge option {
+    background: #1e293b;
+    color: white;
+    padding: 8px;
+}
+
+[data-theme='light'] .role-badge option {
+    background: #ffffff;
+    color: #1e293b;
+}
+
+.role-badge.admin {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--primary);
+    border: 1px solid var(--primary-glow);
+}
+
+.role-badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--text-muted);
+}
+
+.remove-member-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.remove-member-btn:hover {
+    background: #ef4444;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Danger Zone */
+.danger-zone-section {
+    margin-top: 24px;
+    padding: 24px;
+    background: rgba(239, 68, 68, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    border-radius: 20px;
+    transition: var(--transition-smooth);
+}
+
+[data-theme='light'] .danger-zone-section {
+    background: rgba(239, 68, 68, 0.01);
+}
+
+.danger-zone-section:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.04);
+}
+
+.danger-zone-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.danger-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ef4444;
+}
+
+.danger-zone-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    gap: 32px;
+}
+
+[data-theme='light'] .danger-zone-card {
+    background: white;
+    border-color: rgba(239, 68, 68, 0.1);
+}
+
+.danger-info {
+    flex: 1;
+}
+
+.danger-action-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.danger-action-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.btn-danger-outline {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-danger-outline:hover {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+/* ======================================================
+   RESPONSIVE REFINEMENTS
+====================================================== */
+
+@media (max-width: 992px) {
+    .invite-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .invite-input,
+    .role-select,
+    .invite-form .btn {
+        width: 100%;
+    }
+
+    .danger-zone-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .btn-danger-outline {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .member-management-container {
+        gap: 20px;
+    }
+
+    .invite-section,
+    .danger-zone-section {
+        padding: 20px 16px;
+    }
+
+    .member-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .member-actions {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-glass);
+    }
+
+    .remove-member-btn {
+        margin-left: auto;
+    }
+
+    .member-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .member-name {
+        font-size: 14px;
+    }
+
+    .member-email {
+        font-size: 12px;
+    }
+
+    .status-pill,
+    .role-badge {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .invite-input,
+    .role-select {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .danger-action-name {
+        font-size: 15px;
+    }
+
+    .danger-action-desc {
+        font-size: 12px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

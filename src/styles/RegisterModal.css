@@ -1,0 +1,306 @@
+/* Backdrop */
+.register-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 13, 20, 0.6);
+    /* same dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.35s ease forwards;
+}
+
+/* Modal box */
+.register-modal {
+    background: rgba(255, 255, 255, 0.05);
+    /* matches login modal */
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    padding: 40px 36px;
+    max-width: 420px;
+    width: 90%;
+    color: #e5e7eb;
+    position: relative;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: popIn 0.35s ease forwards;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Close button */
+.register-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #cbd5f5;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.register-modal-close:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Header */
+.register-modal h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.register-modal p {
+    font-size: 14px;
+    margin-bottom: 24px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* Error */
+.register-modal-error {
+    background: rgba(255, 0, 0, 0.2);
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #ff4d4d;
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Input fields */
+.register-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.register-field input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.07);
+    color: #e5e7eb;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.register-field input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.35);
+}
+
+.register-field svg {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #6366f1, #22d3ee);
+    color: #0b0d14;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    margin-top: 4px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-google {
+    width: 100%;
+    padding: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #e5e7eb;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    margin-top: 12px;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.btn-google:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Divider */
+.register-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* centers the OR span */
+    text-align: center;
+    margin: 18px 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* Lines on either side */
+.register-divider::before,
+.register-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(156, 163, 175, 0.3);
+}
+
+/* OR text */
+.register-divider span {
+    margin: 0 8px;
+    white-space: nowrap;
+    /* prevents wrapping */
+}
+
+/* Animations */
+@keyframes popIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+    .register-modal {
+        padding: 28px 22px;
+        max-width: 85%;
+    }
+
+    .register-modal h2 {
+        font-size: 22px;
+    }
+
+    .register-modal p {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .register-field input {
+        padding: 10px 10px 10px 36px;
+        font-size: 13px;
+    }
+
+    .btn-primary,
+    .btn-google {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 640px) {
+    .register-modal {
+        padding: 24px 18px;
+        max-width: 90%;
+    }
+
+    .register-modal h2 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .register-modal p {
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+    .register-field {
+        margin-bottom: 14px;
+    }
+
+    .register-field input {
+        padding: 9px 9px 9px 34px;
+        font-size: 12px;
+    }
+
+    .register-field svg {
+        left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-modal {
+        padding: 20px 16px;
+        max-width: 92%;
+        border-radius: 14px;
+    }
+
+    .register-modal h2 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .register-modal p {
+        font-size: 11px;
+        margin-bottom: 16px;
+    }
+
+    .register-field {
+        margin-bottom: 12px;
+    }
+
+    .register-field input {
+        padding: 8px 8px 8px 32px;
+        font-size: 11px;
+        border-radius: 8px;
+    }
+
+    .register-field svg {
+        left: 9px;
+    }
+
+    .btn-primary,
+    .btn-google {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .register-modal-error {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    .register-divider {
+        margin: 14px 0;
+        font-size: 11px;
+    }
+}

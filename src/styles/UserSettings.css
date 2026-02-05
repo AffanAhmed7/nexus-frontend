@@ -1,0 +1,383 @@
+/* User Settings Container */
+.user-settings-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.user-settings-layout {
+    display: flex;
+    gap: 40px;
+}
+
+/* Settings Sidebar */
+.settings-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+}
+
+.settings-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.settings-nav-item.active {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+/* Settings Content */
+.settings-content {
+    flex: 1;
+}
+
+.settings-section {
+    padding: 32px;
+    border-radius: 24px;
+}
+
+.settings-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+}
+
+.settings-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+/* Profile Photo Section */
+.profile-photo-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gradient-hero);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    overflow: hidden;
+    /* Ensure image stays inside */
+}
+
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-avatar-edit-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 4px solid #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-photo-info h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.profile-photo-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Form Sections */
+.form-section {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.form-field {
+    display: grid;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.form-input {
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: var(--glass-bg);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    outline: none;
+}
+
+.form-input:disabled {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+.form-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.form-submit-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Notification Preferences */
+.notification-section {
+    margin-bottom: 32px;
+}
+
+.notification-section-title {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--primary);
+}
+
+/* Toggle Switch */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.toggle-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-switch.active {
+    background: var(--primary);
+}
+
+.toggle-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.active .toggle-thumb {
+    left: 22px;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 1024px) {
+    .user-settings-layout {
+        gap: 32px;
+    }
+
+    .settings-sidebar {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-settings-container {
+        padding: 0;
+    }
+
+    .user-settings-layout {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .settings-sidebar {
+        width: 100%;
+    }
+
+    .settings-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .settings-nav-item {
+        white-space: nowrap;
+        min-width: auto;
+        padding: 10px 16px;
+    }
+
+    .settings-section {
+        padding: 24px;
+    }
+
+    .settings-title {
+        font-size: 22px;
+        margin-bottom: 24px;
+    }
+
+    .profile-photo-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .profile-avatar-wrapper {
+        margin: 0 auto;
+    }
+
+    .form-section {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .settings-section {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .settings-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .settings-subtitle {
+        font-size: 13px;
+        margin-bottom: 24px;
+    }
+
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 24px;
+    }
+
+    .profile-avatar-edit-btn {
+        width: 26px;
+        height: 26px;
+        border-width: 3px;
+    }
+
+    .profile-photo-info h4 {
+        font-size: 15px;
+    }
+
+    .profile-photo-info p {
+        font-size: 12px;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-input {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .form-hint {
+        font-size: 11px;
+    }
+
+    .form-submit-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .notification-section-title {
+        font-size: 15px;
+    }
+
+    .toggle-label {
+        font-size: 13px;
+    }
+
+    .toggle-container {
+        padding: 14px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-nav {
+        gap: 6px;
+    }
+
+    .settings-nav-item {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .settings-section {
+        padding: 16px 12px;
+    }
+
+    .settings-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .form-section {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+}

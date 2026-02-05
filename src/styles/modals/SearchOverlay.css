@@ -1,0 +1,207 @@
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search-field label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 4px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-standard {
+    width: 100%;
+    padding: 14px 18px;
+    padding-right: 60px;
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+    background: transparent !important;
+    color: var(--text-primary);
+    font-size: 16px;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+[data-theme='light'] .search-input-standard {
+    background: transparent !important;
+}
+
+.search-input-standard:focus {
+    background: transparent !important;
+    border-color: var(--border-glass);
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+[data-theme='light'] .search-input-standard:focus {
+    background: transparent !important;
+}
+
+.search-kbd {
+    position: absolute;
+    right: 14px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--text-muted);
+    background: var(--bg-main);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-glass);
+    pointer-events: none;
+}
+
+.search-results-area {
+    margin-top: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.search-results-area::-webkit-scrollbar {
+    width: 4px;
+}
+
+.search-results-area::-webkit-scrollbar-thumb {
+    background: var(--border-glass);
+    border-radius: 10px;
+}
+
+.search-section {
+    margin-bottom: 24px;
+}
+
+.search-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding: 0 4px 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border-radius: 12px;
+    border: 1px solid transparent;
+    margin-bottom: 4px;
+}
+
+.search-item:hover {
+    background: var(--bg-main);
+    border-color: var(--border-glass);
+    transform: translateX(4px);
+}
+
+.search-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--primary-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    transition: var(--transition-fast);
+}
+
+.search-item:hover .search-item-icon {
+    background: var(--primary);
+    color: white;
+}
+
+.search-item-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.search-item-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.search-item-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.archived-tag {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.search-item-priority {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-transform: uppercase;
+}
+
+.search-empty {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.search-footer-info {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-glass);
+    display: flex;
+    gap: 20px;
+}
+
+.footer-tip {
+    font-size: 11px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.footer-tip span {
+    background: var(--bg-main);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-primary);
+    border: 1px solid var(--border-glass);
+    font-size: 10px;
+}
