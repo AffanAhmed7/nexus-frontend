@@ -143,11 +143,6 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
                                                 <span className="item-time">
                                                     <Clock size={10} /> {formatDistanceToNow(new Date(n.createdAt))} ago
                                                 </span>
-                                                {n.link && (
-                                                    <a href={n.link} className="item-link">
-                                                        View <ExternalLink size={10} />
-                                                    </a>
-                                                )}
                                             </div>
                                             {(n.type === 'INVITATION' || n.title?.includes('Invitation')) && (
                                                 <div className="invitation-actions" onClick={e => e.stopPropagation()}>
