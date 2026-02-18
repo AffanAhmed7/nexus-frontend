@@ -200,7 +200,8 @@
 @media (max-width: 768px) {
     .login-modal {
         padding: 28px 22px;
-        max-width: 85%;
+        max-width: 380px;
+        width: 90%;
     }
 
     .login-modal h2 {
@@ -227,7 +228,8 @@
 @media (max-width: 640px) {
     .login-modal {
         padding: 24px 18px;
-        max-width: 90%;
+        max-width: 360px;
+        width: 90%;
     }
 
     .login-modal h2 {
@@ -257,7 +259,8 @@
 @media (max-width: 480px) {
     .login-modal {
         padding: 20px 16px;
-        max-width: 92%;
+        max-width: 330px;
+        width: 92%;
         border-radius: 14px;
     }
 

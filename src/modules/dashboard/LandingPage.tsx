@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, Linkedin, Mail } from "lucide-react";
 import LoginModal from "../auth/LoginModal";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,22 +7,29 @@ import RegisterModal from "../auth/RegisterModal";
 import "../../styles/RegisterModal.css";
 
 const LandingPage = () => {
-    const [scrollProgress, setScrollProgress] = useState(0);
     const [showLogin, setShowLogin] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
 
 
     const navigate = useNavigate();
 
+    // Navbar scroll effect & Hero Zoom
+    const [isScrolled, setIsScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPos = window.scrollY;
+            setIsScrolled(scrollPos > 20);
+            document.documentElement.style.setProperty('--scroll-y', `${scrollPos}`);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     // Scroll reveal animation & scroll progress
     useEffect(() => {
         const revealElements = document.querySelectorAll(".reveal");
 
         const onScroll = () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            setScrollProgress((scrollTop / docHeight) * 100);
-
             revealElements.forEach((el) => {
                 if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
                     el.classList.add("active");
@@ -87,24 +94,15 @@ const LandingPage = () => {
     return (
         <>
             <div className="landing-page">
-                {/* SCROLL PROGRESS */}
-                <div
-                    className="scroll-progress"
-                    style={{ width: `${scrollProgress}%` }}
-                />
 
                 {/* NAVBAR */}
-                <header className="navbar">
+                <header className={`navbar ${isScrolled ? "scrolled" : ""}`}>
                     <div className="navbar-inner">
                         <div className="logo">
-                            NEXUS<span>.</span>
+                            NEXUS
                         </div>
 
-                        <nav className="nav-links">
-                            <a href="#features">Features</a>
-                            <a href="#workflow">Workflow</a>
-                            <a href="#details">Details</a>
-                        </nav>
+                        {/* Sectional links removed for a cleaner aesthetic */}
 
                         <div className="nav-actions">
                             <button
@@ -125,10 +123,17 @@ const LandingPage = () => {
 
                 {/* HERO */}
                 <section className="hero">
-                    <div className="hero-gradient" />
-                    <div className="container hero-content reveal">
+                    <div className="hero-background-wrapper">
+                        <div
+                            className="hero-background-image"
+                            style={{
+                                backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop')"
+                            }}
+                        />
+                    </div>
+                    <div className="container hero-content">
                         <p className="hero-eyebrow">Introducing Nexus</p>
-                        <h1 className="animated-gradient">
+                        <h1>
                             Build clarity.<br />
                             <span>Ship with confidence.</span>
                         </h1>
@@ -184,17 +189,17 @@ const LandingPage = () => {
                 {/* FEATURES */}
                 <section id="features" className="features container">
                     <FeatureCard
-                        img="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=600&auto=format&fit=crop"
+                        img="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=600&auto=format&fit=crop"
                         title="Kanban Boards"
                         text="Visualize your workflow effortlessly. Drag and drop tasks, assign priorities, track deadlines, and maintain full activity history."
                     />
                     <FeatureCard
-                        img="https://images.unsplash.com/photo-1600267165477-6d4cc741b379?q=80&w=600&auto=format&fit=crop"
+                        img="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=600&auto=format&fit=crop"
                         title="Live Collaboration"
                         text="Work together in real-time with WebSocket-powered updates. Team members see changes instantly, reducing conflicts and improving communication."
                     />
                     <FeatureCard
-                        img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
+                        img="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop"
                         title="Control & Insights"
                         text="Gain full transparency with role-based permissions, detailed audit logs, global search, and analytics dashboards."
                     />
@@ -297,7 +302,7 @@ const LandingPage = () => {
                 <footer className="footer">
                     <div className="footer-top">
                         <div className="footer-brand">
-                            NEXUS<span>.</span>
+                            NEXUS
                             <p>Modern project management for focused teams.</p>
                         </div>
                         <div className="footer-links">
@@ -318,22 +323,24 @@ const LandingPage = () => {
     );
 };
 
-const FeatureCard = ({ img, title, text }: any) => (
+const FeatureCard = React.memo(({ img, title, text }: any) => (
     <div className="feature-card reveal">
-        <img src={img} alt={title} />
+        <img src={img} alt={title} loading="lazy" width="600" />
         <h3>{title}</h3>
         <p>{text}</p>
     </div>
-);
+));
 
-const Detail = ({ title, text, img, reverse }: any) => (
-    <div className={`detail reveal ${reverse ? "reverse" : ""}`}>
-        <img src={img} alt={title} />
-        <div>
+const Detail = React.memo(({ title, text, img }: any) => (
+    <div className="detail reveal">
+        <div className="detail-visual">
+            <img src={img} alt={title} loading="lazy" width="400" />
+        </div>
+        <div className="detail-content">
             <h3>{title}</h3>
             <p>{text}</p>
         </div>
     </div>
-);
+));
 
 export default LandingPage;

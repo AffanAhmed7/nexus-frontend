@@ -1,5 +1,5 @@
 ﻿import React, { useState } from 'react';
-import { Bell, CheckCircle, Clock, ExternalLink, MailOpen, RefreshCw, Trash2, X } from 'lucide-react';
+import { Bell, CheckCircle, Clock, MailOpen, RefreshCw, Trash2, X } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { useNotificationStore } from '../../store/notificationStore.js';
 import { useWorkspaceStore } from '../../store/workspaceStore.js';
@@ -85,7 +85,10 @@ const NotificationCenter: React.FC<NotificationCenterProps> = ({ isOpen, onClose
                             <div className="header-right-actions">
                                 {effectiveUnreadCount > 0 && (
                                     <button
-                                        onClick={() => useNotificationStore.getState().markAllAsRead()}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            markAllAsRead();
+                                        }}
                                         className="mark-all-btn"
                                         title="Mark all as read"
                                     >
