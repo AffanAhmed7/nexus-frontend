@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, Linkedin, Mail } from "lucide-react";
+import { motion, useInView } from "framer-motion";
 import LoginModal from "../auth/LoginModal";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/LandingPage.css";
@@ -272,30 +273,37 @@ const LandingPage = () => {
                     </div>
                 </section>
 
-                {/* DETAILS */}
-                <section id="details" className="details">
-                    <Detail
-                        title="Structured Workspaces & Projects"
-                        img="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop"
-                        text="Organize your teams and projects into structured workspaces. Boards, tasks, and subtasks keep everything segmented for easy tracking, collaboration, and scalability."
-                    />
-                    <Detail
-                        title="Advanced Task Lifecycle"
-                        img="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=800&auto=format&fit=crop"
-                        text="Every task evolves with status updates, comments, and detailed activity logs. Soft deletes, archiving, and audit trails ensure you never lose important data."
-                        reverse
-                    />
-                    <Detail
-                        title="Security & Access Control"
-                        img="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop"
-                        text="Enterprise-grade security with JWT authentication, refresh tokens, and role-based permissions. Control who sees what, manage sensitive data safely, and maintain peace of mind for your team."
-                    />
-                    <Detail
-                        title="Scalable Architecture"
-                        img="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop"
-                        text="Built with modern technologies like React, Redux, React Query, Node.js, Express, and PostgreSQL. Designed to scale with your business and support real-time collaboration."
-                        reverse
-                    />
+                {/* CINEMATIC SHOWCASE SECTION */}
+                <section id="details" className="showcase-section">
+                    <div className="container">
+                        <div className="showcase-header reveal">
+                            <span className="showcase-eyebrow">Enterprise Features</span>
+                            <h2>Scale without limits.</h2>
+                            <p>Everything you need to manage complex projects at speed.</p>
+                        </div>
+
+                        <div className="showcase-list">
+                            <ShowcaseItem
+                                title="Structured Workspaces"
+                                eyebrow="Organization"
+                                text="Nexus offers multi-level nesting for your projects. Group boards by department, project phase, or team velocity. Full isolation with shared visibility."
+                                img="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1200&auto=format&fit=crop"
+                            />
+                            <ShowcaseItem
+                                title="Advanced Task Lifecycle"
+                                eyebrow="Productivity"
+                                text="Track every state transition. From intake to archive, Nexus provides detailed audit logs, custom status flows, and dynamic task relationships."
+                                img="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1200&auto=format&fit=crop"
+                                reverse
+                            />
+                            <ShowcaseItem
+                                title="Security & Governance"
+                                eyebrow="Enterprise"
+                                text="Fine-grained RBAC, session management, and JWT-powered authentication ensure your data stays within the perimeter. Built for compliance-heavy environments."
+                                img="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop"
+                            />
+                        </div>
+                    </div>
                 </section>
 
                 {/* FOOTER */}
@@ -325,22 +333,56 @@ const LandingPage = () => {
 
 const FeatureCard = React.memo(({ img, title, text }: any) => (
     <div className="feature-card reveal">
-        <img src={img} alt={title} loading="lazy" width="600" />
+        <img src={img} alt={title} loading="lazy" />
         <h3>{title}</h3>
         <p>{text}</p>
     </div>
 ));
 
-const Detail = React.memo(({ title, text, img }: any) => (
-    <div className="detail reveal">
-        <div className="detail-visual">
-            <img src={img} alt={title} loading="lazy" width="400" />
+const MockBrowser = ({ children }: { children: React.ReactNode }) => (
+    <div className="mock-browser">
+        <div className="browser-header">
+            <div className="browser-dots">
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+            </div>
+            <div className="browser-address">nexus.app</div>
         </div>
-        <div className="detail-content">
-            <h3>{title}</h3>
-            <p>{text}</p>
+        <div className="browser-content">
+            {children}
         </div>
     </div>
-));
+);
+
+const ShowcaseItem = React.memo(({ eyebrow, title, text, img, reverse }: any) => {
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    return (
+        <div ref={ref} className={`showcase-item ${reverse ? 'reverse' : ''}`}>
+            <motion.div
+                className="showcase-content"
+                initial={{ opacity: 0, x: reverse ? 50 : -50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+                <div className="feature-badge">{eyebrow}</div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+            </motion.div>
+
+            <motion.div
+                className="showcase-visual"
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+                <img src={img} alt={title} loading="lazy" />
+                <div className="visual-overlay"></div>
+            </motion.div>
+        </div>
+    );
+});
 
 export default LandingPage;
