@@ -964,7 +964,7 @@
 
   .landing-page .hero {
     min-height: 80vh;
-    padding: 20px 16px 40px;
+    padding: 120px 16px 40px;
   }
 
   .landing-page .hero h1 {
@@ -1079,7 +1079,7 @@
 
   .landing-page .hero {
     min-height: 70vh;
-    padding: 40px 16px 30px;
+    padding: 110px 16px 30px;
   }
 
   .landing-page .hero h1 {
@@ -1160,7 +1160,7 @@
 @media (max-width: 640px) {
   .landing-page .hero {
     min-height: 65vh;
-    padding: 20px 16px 20px;
+    padding: 100px 16px 20px;
   }
 
   .landing-page .hero h1 {
@@ -1277,7 +1277,7 @@
 
   .landing-page .hero {
     min-height: 60vh;
-    padding: 10px 16px 15px;
+    padding: 90px 16px 15px;
   }
 
   .landing-page .hero h1 {
