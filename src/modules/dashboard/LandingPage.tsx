@@ -339,22 +339,6 @@ const FeatureCard = React.memo(({ img, title, text }: any) => (
     </div>
 ));
 
-const MockBrowser = ({ children }: { children: React.ReactNode }) => (
-    <div className="mock-browser">
-        <div className="browser-header">
-            <div className="browser-dots">
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-            </div>
-            <div className="browser-address">nexus.app</div>
-        </div>
-        <div className="browser-content">
-            {children}
-        </div>
-    </div>
-);
-
 const ShowcaseItem = React.memo(({ eyebrow, title, text, img, reverse }: any) => {
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
