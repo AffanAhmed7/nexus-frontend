@@ -133,7 +133,6 @@ const LandingPage = () => {
                         />
                     </div>
                     <div className="container hero-content">
-                        <p className="hero-eyebrow">Introducing Nexus</p>
                         <h1>
                             Build clarity.<br />
                             <span>Ship with confidence.</span>
