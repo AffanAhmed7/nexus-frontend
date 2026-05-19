@@ -1,4 +1,4 @@
-﻿/* ======================================================
+/* ======================================================
    NEXUS MODERN SAAS THEME — 2026 EDITION
 ====================================================== */
 
@@ -1272,18 +1272,25 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
   }
 
   .dashboard-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 12px;
     height: 64px;
-    grid-template-columns: auto 1fr auto;
     gap: 12px;
   }
 
   .navbar-left {
     min-width: auto;
     gap: 12px;
+    flex-shrink: 1;
+    overflow: hidden;
   }
 
   .navbar-center {
@@ -1293,6 +1300,7 @@ body {
   .navbar-right {
     min-width: auto;
     gap: 8px;
+    flex-shrink: 0;
   }
 
   .navbar-divider {
@@ -1303,21 +1311,40 @@ body {
     display: none;
   }
 
+  .workspace-details {
+    display: none;
+  }
+
+  .workspace-switcher-compact {
+    padding: 4px 6px;
+    gap: 6px;
+  }
+
+  .workspace-dropdown-menu {
+    left: -120px;
+    border-radius: 12px;
+  }
+
   .user-info-compact {
     display: none;
   }
 
   .logout-icon-small {
-    margin-left: 4px;
-    padding: 8px;
-    width: 34px;
-    height: 34px;
-    opacity: 0.8;
+    display: none;
   }
 
   .user-profile-dropdown {
-    padding: 2px 6px;
-    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    gap: 0;
+    box-shadow: none;
+  }
+
+  .btn-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
   }
 
   .header-main-row {
@@ -1545,6 +1572,28 @@ body {
 
 /* Small mobile */
 @media (max-width: 480px) {
+  .dashboard-navbar {
+    padding: 0 8px;
+    gap: 8px;
+  }
+
+  .navbar-left {
+    gap: 8px;
+  }
+
+  .navbar-right {
+    gap: 6px;
+  }
+
+  .dashboard-actions-group {
+    gap: 6px;
+  }
+
+  .workspace-dropdown-menu {
+    left: -130px;
+    width: 240px;
+  }
+
   .dashboard-logo {
     font-size: 20px;
   }
