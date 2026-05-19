@@ -738,8 +738,6 @@ const Dashboard = () => {
                                     </button>
                                 );
                             })}
-                        </nav>
-                        <div className="mobile-menu-footer">
                             <button
                                 className="mobile-nav-item logout-item"
                                 onClick={() => {
@@ -750,7 +748,7 @@ const Dashboard = () => {
                                 <LogOut size={18} />
                                 <span>Logout</span>
                             </button>
-                        </div>
+                        </nav>
                     </div>
                 </>
             )}

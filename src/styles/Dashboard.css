@@ -1143,21 +1143,14 @@ body {
   border-radius: 0 4px 4px 0;
 }
 
-.mobile-menu-footer {
-  padding: 12px 16px 24px;
+.logout-item {
+  margin-top: 12px;
+  padding-top: 12px;
   border-top: 1px solid var(--border-card);
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
 }
 
-[data-theme='light'] .mobile-menu-footer {
+[data-theme='light'] .logout-item {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.mobile-menu-footer .logout-item {
-  width: 100%;
-  margin: 0;
 }
 
 .logout-item:hover {
