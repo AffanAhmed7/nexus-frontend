@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAuthStore } from '../../store/authStore.js';
 import { useWorkspaceStore } from '../../store/workspaceStore.js';
 import { useNotificationStore } from '../../store/notificationStore.js';
@@ -738,7 +738,8 @@ const Dashboard = () => {
                                     </button>
                                 );
                             })}
-                            <div className="mobile-nav-divider" />
+                        </nav>
+                        <div className="mobile-menu-footer">
                             <button
                                 className="mobile-nav-item logout-item"
                                 onClick={() => {
@@ -749,7 +750,7 @@ const Dashboard = () => {
                                 <LogOut size={18} />
                                 <span>Logout</span>
                             </button>
-                        </nav>
+                        </div>
                     </div>
                 </>
             )}

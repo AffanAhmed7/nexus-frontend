@@ -1143,9 +1143,21 @@ body {
   border-radius: 0 4px 4px 0;
 }
 
-.logout-item {
+.mobile-menu-footer {
+  padding: 12px 16px 24px;
+  border-top: 1px solid var(--border-card);
   margin-top: auto;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme='light'] .mobile-menu-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu-footer .logout-item {
+  width: 100%;
+  margin: 0;
 }
 
 .logout-item:hover {
