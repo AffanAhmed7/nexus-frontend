@@ -1,4 +1,4 @@
-# Nexus Frontend Client 🚀
+# Nexus Frontend Client 
 
 Nexus is a premium, enterprise-grade task management platform built for modern product development teams. This repository contains the **React frontend client**, featuring a sleek glassmorphic dashboard, drag-and-drop Kanban boards, real-time collaboration, analytics dashboards, and keyboard shortcuts.
 
@@ -10,18 +10,18 @@ Nexus is a premium, enterprise-grade task management platform built for modern p
 
 ---
 
-## ✨ Key Features
+ Key Features
 
-- **📊 Modern Dashboard**: A glassmorphic control center showcasing workspace activity summary, upcoming tasks, project progressions, and quick action widgets.
-- **📋 Real-time Kanban Board**: Interactive, fluid drag-and-drop workflow system powered by `@hello-pangea/dnd` with nested list groups.
-- **🔔 Instant Notifications**: Real-time collaborative updates and action toasts using Socket.io and `react-hot-toast`.
-- **📈 Advanced Analytics**: Interactive, animated data charts powered by `Recharts` providing team velocity and completion insight.
-- **⚡ Hotkeys & Commands**: Quick-actions command menu (⌘K / Ctrl+K), keyboard shortcuts for task creation, and instant search index.
-- **🌗 Theme Customization**: Native light and dark theme mode, with responsive UI tailoring layout options on mobile screens down to `320px`.
+-  Modern Dashboard**: A glassmorphic control center showcasing workspace activity summary, upcoming tasks, project progressions, and quick action widgets.
+-  Real-time Kanban Board**: Interactive, fluid drag-and-drop workflow system powered by `@hello-pangea/dnd` with nested list groups.
+-  Instant Notifications**: Real-time collaborative updates and action toasts using Socket.io and `react-hot-toast`.
+-  Advanced Analytics**: Interactive, animated data charts powered by `Recharts` providing team velocity and completion insight.
+-  Hotkeys & Commands**: Quick-actions command menu (⌘K / Ctrl+K), keyboard shortcuts for task creation, and instant search index.
+-  Theme Customization**: Native light and dark theme mode, with responsive UI tailoring layout options on mobile screens down to `320px`.
 
 ---
 
-## 🛠️ Tech Stack & Dependencies
+ Tech Stack & Dependencies
 
 - **Core**: React 19, Vite, TypeScript
 - **State Management**: Zustand (Global state, auth context, theme settings)
@@ -34,7 +34,7 @@ Nexus is a premium, enterprise-grade task management platform built for modern p
 
 ---
 
-## 📁 Directory Structure
+ Directory Structure
 
 ```text
 frontend/src/
@@ -52,7 +52,7 @@ frontend/src/
 
 ---
 
-## 🚀 Getting Started
+ Getting Started
 
 ### 1. Prerequisites
 Ensure you have **Node.js** (v18+) and **npm** installed.
